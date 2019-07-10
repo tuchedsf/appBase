@@ -13,13 +13,13 @@ This base use Node, Express, Mysql with Sequelize.
 - Install node
 - Install yarn
 
-Clone or download this repository and run comands:
+- Clone or download this repository and run comands:
 
 ```bash
 yarn
 ```
 
-Configure ESLint:
+- Configure ESLint:
 
 ```bash
 yarn eslint --init
@@ -33,6 +33,34 @@ yarn eslint --init
 ? What format do you want your config file to be in? JavaScript
 ```
 
+- Configure Database:
+  This app, use mysql ( yarn add mysql2) but you can use whatever you prefer that is compatible with the Sequelize.
+
+Install the package do you prefer and change de config/database.js.
+
+```javascript
+module.exports = {
+  dialect: 'mysql', // postgres, sqlite, etc...
+  host: 'yourip',
+  username: 'yourUser',
+  password: 'youruser',
+  database: 'yourdatabase',
+  operatorAliases: false,
+  define: {
+    timestamps: true,
+    underscored: true,
+    underscoredAll: true,
+  },
+};
+```
+
+Initialize sequelize first and run user create migration (pre configured):
+
+```bash
+npx sequelize init
+npx sequelize db:migrate
+```
+
 ## Components
 
 - Node [Node](https://nodejs.org/en/)
@@ -42,7 +70,8 @@ yarn eslint --init
 
 ## Versioning
 
-- V.1.0.0 - Version Initial ( node / nodemon / sucrase)
+- V.0.0.0 - Version Initial ( node / nodemon / sucrase)
+- V.0.0.1 - Configuration Sequelize
 
 ## Contributing
 
