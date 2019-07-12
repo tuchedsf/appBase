@@ -42,6 +42,7 @@ Install the package do you prefer and change de config/database.js.
 module.exports = {
   dialect: 'mysql', // postgres, sqlite, etc...
   host: 'yourip',
+  port: '',
   username: 'yourUser',
   password: 'youruser',
   database: 'yourdatabase',
@@ -61,6 +62,8 @@ npx sequelize init
 npx sequelize db:migrate
 ```
 
+Ex.: criação da migracao usuario: npx sequelize migration:create --name=create-users
+
 ## Components
 
 - Node [Node](https://nodejs.org/en/)
@@ -72,6 +75,8 @@ npx sequelize db:migrate
 
 - V.0.0.0 - Version Initial ( node / nodemon / sucrase)
 - V.0.0.1 - Configuration Sequelize
+- V.0.1.0 - Finishing sequelize config.
+- V.0.2.0 - Create migration and model for User
 
 ## Contributing
 
