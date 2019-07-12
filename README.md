@@ -25,7 +25,7 @@ yarn
 yarn eslint --init
 
 ? How would you like to use ESLint? To check syntax, find problems, and enforce code style
-? What type of modules does your project use? None of these
+? What type of modules does your project use? JavaScript modules (import/export)
 ? Which framework does your project use? None of these
 ? Where does your code run? Node
 ? How would you like to define a style for your project? Use a popular style guide
