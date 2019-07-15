@@ -9,7 +9,7 @@ class TestConnection{
     async init(){
         const sequelize = new Sequelize(databaseConfig);
         await sequelize.authenticate().then(() => {
-            console.log('Connection has been established successfully.');
+            console.log('Connection with database has been established successfully.');
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err);
