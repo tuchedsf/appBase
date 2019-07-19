@@ -1,6 +1,8 @@
 import { Router } from "express";
 
-import userController from './app/controllers/UserController'
+import UserController from './app/controllers/UserController'
+import SessionController from './app/controllers/SessionController'
+import authMiddleware from './app/middlewares/auth'
 
 const routes = new Router();
 
@@ -8,7 +10,12 @@ routes.get("/", (req, res) => {
   res.json({ message: "hello word" });
 });
 
-routes.get('/users', userController.list);
-routes.post('/users', userController.store);
+routes.post('/signin', SessionController.signin);
+routes.post('/users', UserController.store);
+
+routes.use(authMiddleware);
+routes.get('/users', UserController.index);
+routes.put('/users', UserController.update);
+
 
 export default routes;

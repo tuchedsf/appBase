@@ -1,7 +1,7 @@
 import User from '../models/User';
 class UserController { 
 
-    async list(req, res) {
+    async index(req, res) {
         const users = await User.findAll();
         return res.json(users)
     }
@@ -19,11 +19,34 @@ class UserController {
             return res.status(400).json({message: error})
         }
 
-    }
+    } 
 
     async update(req, res) {
-
-    }
+        
+        const { email, oldPassword } = req.body;
+        
+        const userExists = await User.findByPk(req.userId);
+    
+        if (email && email !== userExists.email) {
+          const userExists = await User.findOne({ where: { email } });
+          if (userExists) {
+            res.status(400).json({ error: 'USUARIO JA CADASTRADO' });
+          }
+        }
+    
+        if (oldPassword && !(await userExists.verifyPassword(oldPassword))) {
+          res.status(400).json({ error: 'OLD PASSWORD INVALIDO' });
+        }
+    
+        const { id, name, provider } = await userExists.update(req.body);
+    
+        return res.json({
+          id,
+          name,
+          email,
+          provider,
+        });
+      }
 
 }
 
