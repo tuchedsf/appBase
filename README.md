@@ -71,6 +71,7 @@ Ex.: criação da migracao usuario: npx sequelize migration:create --name=create
 - Sucrase [Sucrase](https://github.com/alangpierce/sucrase)
 - Sequelize [Sequelize](http://docs.sequelizejs.com/)
 - Bcrypt [Bcryptjs](https://github.com/dcodeIO/bcrypt.js/)
+- JWT [Jwt](https://jwt.io/)
 
 ## Versioning
 
@@ -79,6 +80,8 @@ Ex.: criação da migracao usuario: npx sequelize migration:create --name=create
 - V.0.1.0 - Finishing sequelize config.
 - V.0.2.0 - Create migration and model for User
 - V.0.3.0 - Route Store for user and bcrypt js to hash password
+- V.0.4.0 - Inclusão login via JWT
+- V.0.4.1 - Ajuste e Testes Login/Uso JWT/ Signin / Signon
 
 ## Contributing
 

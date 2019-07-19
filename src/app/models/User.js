@@ -20,7 +20,7 @@ class User extends Model {
           }
         });
     
-        this.verifyPassword = function(password) {
+        this.prototype.verifyPassword = function(password) {
           return bcrypt.compare(password, this.password_hash);
         };
     }

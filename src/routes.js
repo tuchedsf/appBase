@@ -11,7 +11,7 @@ routes.get("/", (req, res) => {
 });
 
 routes.post('/signin', SessionController.signin);
-routes.post('/users', UserController.store);
+routes.post('/signon', UserController.store);
 
 routes.use(authMiddleware);
 routes.get('/users', UserController.index);
