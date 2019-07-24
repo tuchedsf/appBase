@@ -14,6 +14,7 @@ export default async (req, res, next) => {
   const [, token] = authHeader.split(' ');
 
   try {
+    //promisify - transforma uma funcao comum em promise
     const decoded = await promisify(jwt.verify)(token, authConfig.secret);
     //incluir o id do usuario nas requisições para faciliar nas pesquisas/rotinas etc...
     req.userId = decoded.id;
